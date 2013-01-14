@@ -33,3 +33,6 @@ Installation
   url, which will be::
   
     http(s)://<yoursite.com>/aeea4b34-e5cb-4b05-84d8-79bfee95ccf4/batch/
+  
+  Be sure to check the box that says "Batch event notifications"
+
