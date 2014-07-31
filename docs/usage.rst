@@ -64,11 +64,11 @@ of a specific content model you can pass in as a ``unique_arg``::
 Then hook up a signal receiver for ``sendgrid_events.signals.batch_processed``::
 
     from django.dispatch import receiver
-    
+
     from sendgrid_events.signals import batch_processed
     from mysite.myapp.models import SomeContent
-    
-    
+
+
     @receiver(batch_processed)
     def handle_batch_processed(sender, events, **kwargs):
         for event in events:
@@ -84,7 +84,7 @@ Where you have created a tracking model in your ``mysite.myapps.models`` for
     class SomeContentEvent(models.Model):
         some_content = models.ForeignKey(SomeContent, related_name="email_events")
         sendgrid_event = models.ForeignKey(Event, related_name="+")
-        
+
         class Meta:
             ordering = ["sendgrid_event__created_at"]
 

@@ -21,4 +21,3 @@ Contents
  installation
  signals
  usage
- 

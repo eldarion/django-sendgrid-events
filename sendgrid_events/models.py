@@ -13,7 +13,7 @@ class Event(models.Model):
     email = models.CharField(max_length=150)
     data = JSONField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
-    
+
     @classmethod
     def process_batch(cls, data):
         events = []
