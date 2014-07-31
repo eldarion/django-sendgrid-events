@@ -8,4 +8,4 @@ install:
   - pip install -e .
 
 script:
-  - flake8 .
+  - flake8 setup.py docs sendgrid_events
