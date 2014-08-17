@@ -17,13 +17,11 @@ class Event(models.Model):
     @classmethod
     def process_batch(cls, data):
         events = []
-        for line in data.split("\r\n"):
-            if line:
-                d = json.loads(line.strip())
-                events.append(Event.objects.create(
-                    kind=d["event"],
-                    email=d["email"],
-                    data=d
-                ))
+        for event in json.loads(data):
+            events.append(Event.objects.create(
+                kind=event["event"],
+                email=event["email"],
+                data=event
+            ))
         batch_processed.send(sender=Event, events=events)
         return events
