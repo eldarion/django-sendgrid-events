@@ -8,5 +8,5 @@ from sendgrid_events.models import Event
 @require_POST
 @csrf_exempt
 def handle_batch_post(request):
-    Event.process_batch(data=request.raw_post_data)
+    Event.process_batch(data=request.body)
     return HttpResponse()
